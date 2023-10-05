@@ -2,8 +2,13 @@
     "compilerOptions": {
         "baseUrl": "./src",
         "paths": {
+            
             "@atoms": ["stories/components/atoms/index.ts"],
             "@molecules": ["stories/components/molecules/index.ts"],
+            "@templates": ["stories/components/templates/index.ts"],
+
+            "@data": ["app/data/index.ts"],
+            "@types": ["app/types/index.ts"],
         }
     }
 }
