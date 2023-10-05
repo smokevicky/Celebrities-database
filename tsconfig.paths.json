@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "baseUrl": "./src",
+        "paths": {
+            "@atoms": ["stories/components/atoms/index.ts"],
+            "@molecules": ["stories/components/molecules/index.ts"],
+        }
+    }
+}
