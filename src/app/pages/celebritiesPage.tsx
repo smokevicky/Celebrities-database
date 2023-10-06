@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { CelebritiesData } from '@apiData';
-import { SearchBoxProps } from '@atoms';
+import { DialogBox, SearchBoxProps } from '@atoms';
 import { AccordionGroupProps } from '@molecules';
 import { Box } from '@mui/material';
 import { Celebrities } from '@templates';
@@ -18,10 +18,30 @@ export const CelebritiesPage = () => {
 
     const originalCelebrityData: Celebrity[] = Array.from(CelebritiesData);
     const [celebrityData, setCelebrityData] = useState<Celebrity[]>(originalCelebrityData);
+    const [toBeDeletedId, setToBeDeletedId] = useState<number>(0);
+
+    const isDeleteModalVisible = () => {
+        return toBeDeletedId !== 0;
+    };
+
+    const resetToBeDeletedId = () => {
+        setToBeDeletedId(0);
+    };
 
     const onSubmit = (updatedData?: Celebrity) => {
         if (updatedData) {
             setCelebrityData(CelebrityDataUtilities.getUpdatedCelebritiesData(celebrityData, updatedData));
+        }
+    };
+
+    const onDelete = (idToBeDeleted?: number) => {
+        setToBeDeletedId(idToBeDeleted ?? 0);
+    };
+
+    const onDeleteConfirm = () => {
+        if (toBeDeletedId) {
+            setCelebrityData(CelebrityDataUtilities.getAfterDeleteCelebritiesData(celebrityData, toBeDeletedId ?? 0));
+            resetToBeDeletedId();
         }
     };
 
@@ -34,11 +54,15 @@ export const CelebritiesPage = () => {
     };
 
     const accordionGroupData: AccordionGroupProps = {
-        ...CelebrityDataUtilities.getFormattedCelebrityData(celebrityData, onSubmit),
+        ...CelebrityDataUtilities.getFormattedCelebrityData(celebrityData, onSubmit, onDelete),
     };
 
     return (
         <Box sx={styles.celebritiesContainer}>
+            {isDeleteModalVisible() && (
+                <DialogBox isOpen={true} onConfirm={onDeleteConfirm} onCancel={resetToBeDeletedId}></DialogBox>
+            )}
+
             <Celebrities searchBoxData={searchBoxData} accordionGroupData={accordionGroupData}></Celebrities>
         </Box>
     );

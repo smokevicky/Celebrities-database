@@ -37,6 +37,7 @@ export interface AccordionAtomProps {
     isInEditMode?: boolean;
     onChange: (isExpanded: string | false) => void;
     onSubmit: (updatedData?: Celebrity) => void;
+    onDelete: (idToBeDeleted?: number) => void;
     onEditModeToggle: (isInEditMode: boolean) => void;
 }
 
@@ -53,9 +54,9 @@ export const AccordionAtom = ({
     isInEditMode = false,
     onChange = () => {},
     onSubmit = () => {},
+    onDelete = () => {},
     onEditModeToggle = () => {},
 }: AccordionAtomProps) => {
-    debugger;
     const [isEditMode, setIsEditMode] = useState<boolean>(isInEditMode);
 
     const [firstNameValue, setFirstNameValue] = useState<string>(firstName);
@@ -174,7 +175,9 @@ export const AccordionAtom = ({
         handleEditEnd();
     };
 
-    const handleDelete = () => {};
+    const handleDelete = () => {
+        onDelete(id);
+    };
 
     return (
         <Box>
@@ -288,12 +291,12 @@ export const AccordionAtom = ({
                                 <DeleteOutlined
                                     sx={styles.userActionIcons}
                                     style={{ color: '#FF3500' }}
-                                    onClick={() => handleDelete()}
+                                    onClick={handleDelete}
                                 />
                                 <EditOutlined
                                     sx={styles.userActionIcons}
                                     style={{ color: '#057DFF' }}
-                                    onClick={() => handleEditStart()}
+                                    onClick={handleEditStart}
                                 />
                             </>
                         ) : (

@@ -8,9 +8,10 @@ import DialogContentText from '@mui/material/DialogContentText';
 export interface DialogBoxProps {
     isOpen: boolean;
     onConfirm: () => void;
+    onCancel: () => void;
 }
 
-export const DialogBox = ({ isOpen = false, onConfirm = () => {} }: DialogBoxProps) => {
+export const DialogBox = ({ isOpen = false, onConfirm = () => {}, onCancel = () => {} }: DialogBoxProps) => {
     const styles = {
         deleteBtn: {
             backgroundColor: '#FF3500',
@@ -23,6 +24,11 @@ export const DialogBox = ({ isOpen = false, onConfirm = () => {} }: DialogBoxPro
     const handleConfirm = () => {
         toggleModal(false);
         onConfirm();
+    };
+
+    const handleCancel = () => {
+        toggleModal(false);
+        onCancel();
     };
 
     return (
@@ -39,7 +45,7 @@ export const DialogBox = ({ isOpen = false, onConfirm = () => {} }: DialogBoxPro
                     <DialogContentText>Are you sure you want to delete?</DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                    <Button variant='outlined' size='medium' onClick={() => toggleModal(false)}>
+                    <Button variant='outlined' size='medium' onClick={handleCancel}>
                         Cancel
                     </Button>
                     <Button

@@ -24,6 +24,7 @@ const accordionContent = [
         gender: GenderData.Male,
         onChange: () => {},
         onSubmit: () => {},
+        onDelete: () => {},
         onEditModeToggle: () => {},
     },
     {
@@ -39,6 +40,7 @@ const accordionContent = [
         gender: GenderData.Transgender,
         onChange: () => {},
         onSubmit: () => {},
+        onDelete: () => {},
         onEditModeToggle: () => {},
     },
     {
@@ -54,6 +56,7 @@ const accordionContent = [
         gender: GenderData.Female,
         onChange: () => {},
         onSubmit: () => {},
+        onDelete: () => {},
         onEditModeToggle: () => {},
     },
 ];
@@ -73,6 +76,7 @@ const accordionContentEditMode = [
         isInEditMode: true,
         onChange: () => {},
         onSubmit: () => {},
+        onDelete: () => {},
         onEditModeToggle: () => {},
     },
     {
@@ -88,6 +92,7 @@ const accordionContentEditMode = [
         gender: GenderData.Transgender,
         onChange: () => {},
         onSubmit: () => {},
+        onDelete: () => {},
         onEditModeToggle: () => {},
     },
     {
@@ -103,6 +108,7 @@ const accordionContentEditMode = [
         gender: GenderData.Female,
         onChange: () => {},
         onSubmit: () => {},
+        onDelete: () => {},
         onEditModeToggle: () => {},
     },
 ];
