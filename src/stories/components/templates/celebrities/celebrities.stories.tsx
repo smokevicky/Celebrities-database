@@ -12,6 +12,7 @@ type Story = StoryObj<typeof Celebrities>;
 
 const accordionContent = [
     {
+        id: 1,
         isExpanded: true,
         firstName: 'John',
         lastName: 'Doe',
@@ -22,9 +23,11 @@ const accordionContent = [
             'This character description generator will generate a fairly random description of a belonging to Aidan Wang. However, some aspects of the descriptions will remain the same, this is done to keep the general structure the same, while still randomizing the important details of Aidan Wang.',
         gender: GenderData.Male,
         onChange: () => {},
-        onEditStart: () => {},
+        onSubmit: () => {},
+        onEditModeToggle: () => {},
     },
     {
+        id: 2,
         isExpanded: false,
         firstName: 'John',
         lastName: 'Doe',
@@ -35,9 +38,11 @@ const accordionContent = [
             'This character description generator will generate a fairly random description of a belonging to Aidan Wang. However, some aspects of the descriptions will remain the same, this is done to keep the general structure the same, while still randomizing the important details of Aidan Wang.',
         gender: GenderData.Transgender,
         onChange: () => {},
-        onEditStart: () => {},
+        onSubmit: () => {},
+        onEditModeToggle: () => {},
     },
     {
+        id: 3,
         isExpanded: false,
         firstName: 'John',
         lastName: 'Doe',
@@ -48,7 +53,8 @@ const accordionContent = [
             'This character description generator will generate a fairly random description of a belonging to Aidan Wang. However, some aspects of the descriptions will remain the same, this is done to keep the general structure the same, while still randomizing the important details of Aidan Wang.',
         gender: GenderData.Female,
         onChange: () => {},
-        onEditStart: () => {},
+        onSubmit: () => {},
+        onEditModeToggle: () => {},
     },
 ];
 

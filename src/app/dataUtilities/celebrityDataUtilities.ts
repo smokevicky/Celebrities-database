@@ -5,29 +5,32 @@ import { Celebrity, Gender } from '@types';
 
 export const CelebrityDataUtilities = {
     // gets the formatted celebrities data from the api
-    getFormattedCelebrityData: (celebrityData: Celebrity[]) => {
-        const formattedCelebrityData: AccordionGroupProps =
-            CelebrityDataUtilities.formatAccordionGroupData(celebrityData);
+    getFormattedCelebrityData: (celebrityData: Celebrity[], onSubmit: () => void) => {
+        const formattedCelebrityData: AccordionGroupProps = CelebrityDataUtilities.formatAccordionGroupData(
+            celebrityData,
+            onSubmit
+        );
 
         return formattedCelebrityData;
     },
 
     // formats group data for the accordian
-    formatAccordionGroupData: (celebrityData: Celebrity[]) => {
+    formatAccordionGroupData: (celebrityData: Celebrity[], onSubmit: () => void) => {
         let formattedCelebrityData: AccordionGroupProps = {
             content: [],
         };
 
         Array.from(celebrityData).forEach((celebrity) => {
-            formattedCelebrityData.content.push(CelebrityDataUtilities.formatAccordionData(celebrity));
+            formattedCelebrityData.content.push(CelebrityDataUtilities.formatAccordionData(celebrity, onSubmit));
         });
 
         return formattedCelebrityData;
     },
 
     // formats celebrity for each accordian
-    formatAccordionData: (celebrityData: Celebrity) => {
+    formatAccordionData: (celebrityData: Celebrity, onSubmit: () => void) => {
         const accordionData: AccordionAtomProps = {
+            id: celebrityData.id,
             firstName: celebrityData.first,
             lastName: celebrityData.last,
             dob: celebrityData.dob,
@@ -40,7 +43,8 @@ export const CelebrityDataUtilities = {
             isExpanded: false,
             isInEditMode: false,
             onChange: () => {},
-            onEditStart: () => {},
+            onSubmit: onSubmit,
+            onEditModeToggle: () => {},
         };
 
         return accordionData;
@@ -57,5 +61,14 @@ export const CelebrityDataUtilities = {
         );
 
         return filteredData;
+    },
+
+    // updates the updated celebrity node and appends into the original array
+    getUpdatedCelebritiesData: (celebrityData: Celebrity[], updatedData: Celebrity) => {
+        let toBeUpdatedNodeIndex = celebrityData.findIndex((c) => c.id === updatedData.id);
+        if (toBeUpdatedNodeIndex) {
+            celebrityData[toBeUpdatedNodeIndex] = { ...updatedData };
+        }
+        return celebrityData;
     },
 };

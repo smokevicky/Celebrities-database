@@ -5,14 +5,22 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import dayjs from 'dayjs';
 
 export interface DobPickerProps {
-    defaultValue: string;
-    onChange: (value: string) => void;
+    defaultValue: string | Date;
+    onChange?: (value: Date) => void;
 }
 
 export const DobPicker = (props: DobPickerProps) => {
     return (
         <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DatePicker format='YYYY-MM-DD' defaultValue={dayjs(props.defaultValue)} />
+            <DatePicker
+                format='YYYY-MM-DD'
+                defaultValue={dayjs(props.defaultValue)}
+                onChange={(event) => {
+                    if (event) {
+                        props.onChange?.(event.toDate());
+                    }
+                }}
+            />
         </LocalizationProvider>
     );
 };

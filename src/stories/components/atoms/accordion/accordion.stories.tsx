@@ -22,7 +22,7 @@ export const Default: Story = {
             'This character description generator will generate a fairly random description of a belonging to Aidan Wang. However, some aspects of the descriptions will remain the same, this is done to keep the general structure the same, while still randomizing the important details of Aidan Wang.',
         gender: GenderData.Male,
         onChange: () => {},
-        onEditStart: () => {},
+        onSubmit: () => {},
     },
 };
 
@@ -38,7 +38,7 @@ export const Open: Story = {
             'This character description generator will generate a fairly random description of a belonging to Aidan Wang. However, some aspects of the descriptions will remain the same, this is done to keep the general structure the same, while still randomizing the important details of Aidan Wang.',
         gender: GenderData.Female,
         onChange: () => {},
-        onEditStart: () => {},
+        onSubmit: () => {},
     },
 };
 
@@ -55,6 +55,6 @@ export const InEditMode: Story = {
         gender: GenderData.Male,
         isInEditMode: true,
         onChange: () => {},
-        onEditStart: () => {},
+        onSubmit: () => {},
     },
 };

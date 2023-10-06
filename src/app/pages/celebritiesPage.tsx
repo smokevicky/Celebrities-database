@@ -17,8 +17,13 @@ export const CelebritiesPage = () => {
     };
 
     const originalCelebrityData: Celebrity[] = Array.from(CelebritiesData);
-
     const [celebrityData, setCelebrityData] = useState<Celebrity[]>(originalCelebrityData);
+
+    const onSubmit = (updatedData?: Celebrity) => {
+        if (updatedData) {
+            setCelebrityData(CelebrityDataUtilities.getUpdatedCelebritiesData(celebrityData, updatedData) ?? []);
+        }
+    };
 
     const searchBoxData: SearchBoxProps = {
         onChange: (searchText) => {
@@ -29,7 +34,7 @@ export const CelebritiesPage = () => {
     };
 
     const accordionGroupData: AccordionGroupProps = {
-        ...CelebrityDataUtilities.getFormattedCelebrityData(celebrityData),
+        ...CelebrityDataUtilities.getFormattedCelebrityData(celebrityData, onSubmit),
     };
 
     return (
