@@ -5,7 +5,7 @@ import { Celebrity, Gender } from '@types';
 
 export const CelebrityDataUtilities = {
     // gets the formatted celebrities data from the api
-    getFormattedCelebrityData: (celebrityData: Celebrity[], onSubmit: () => void) => {
+    getFormattedCelebrityData: (celebrityData: Celebrity[], onSubmit?: () => void) => {
         const formattedCelebrityData: AccordionGroupProps = CelebrityDataUtilities.formatAccordionGroupData(
             celebrityData,
             onSubmit
@@ -15,12 +15,12 @@ export const CelebrityDataUtilities = {
     },
 
     // formats group data for the accordian
-    formatAccordionGroupData: (celebrityData: Celebrity[], onSubmit: () => void) => {
+    formatAccordionGroupData: (celebrityData: Celebrity[], onSubmit?: () => void) => {
         let formattedCelebrityData: AccordionGroupProps = {
             content: [],
         };
 
-        Array.from(celebrityData).forEach((celebrity) => {
+        celebrityData.forEach((celebrity) => {
             formattedCelebrityData.content.push(CelebrityDataUtilities.formatAccordionData(celebrity, onSubmit));
         });
 
@@ -28,7 +28,7 @@ export const CelebrityDataUtilities = {
     },
 
     // formats celebrity for each accordian
-    formatAccordionData: (celebrityData: Celebrity, onSubmit: () => void) => {
+    formatAccordionData: (celebrityData: Celebrity, onSubmit?: (updtedData?: Celebrity) => void) => {
         const accordionData: AccordionAtomProps = {
             id: celebrityData.id,
             firstName: celebrityData.first,
@@ -43,7 +43,7 @@ export const CelebrityDataUtilities = {
             isExpanded: false,
             isInEditMode: false,
             onChange: () => {},
-            onSubmit: onSubmit,
+            onSubmit: (updtedData) => onSubmit?.(updtedData),
             onEditModeToggle: () => {},
         };
 
@@ -53,11 +53,11 @@ export const CelebrityDataUtilities = {
     // gets filtered data by searchText
     getFilteredCelebritiesData: (celebrityData: Celebrity[], searchText: string) => {
         const filteredData = celebrityData.filter(
-            ({ first, last, description, country }) =>
-                first.toLowerCase().includes(searchText) ||
-                last.toLowerCase().includes(searchText) ||
-                country.toLowerCase().includes(searchText) ||
-                description.toLowerCase().includes(searchText)
+            (celebrity: Celebrity) =>
+                celebrity.first.toLowerCase().includes(searchText) ||
+                celebrity.last.toLowerCase().includes(searchText) ||
+                celebrity.country.toLowerCase().includes(searchText) ||
+                celebrity.description.toLowerCase().includes(searchText)
         );
 
         return filteredData;
@@ -69,6 +69,6 @@ export const CelebrityDataUtilities = {
         if (toBeUpdatedNodeIndex) {
             celebrityData[toBeUpdatedNodeIndex] = { ...updatedData };
         }
-        return celebrityData;
+        return [...celebrityData];
     },
 };

@@ -29,8 +29,8 @@ const accordionContent = [
     {
         id: 2,
         isExpanded: false,
-        firstName: 'John',
-        lastName: 'Doe',
+        firstName: 'Jyoti',
+        lastName: 'Jena',
         profilePicture: 'https://randomuser.me/api/portraits/med/men/93.jpg',
         dob: '2010-10-16',
         country: 'New Zealand',
@@ -44,8 +44,8 @@ const accordionContent = [
     {
         id: 3,
         isExpanded: false,
-        firstName: 'John',
-        lastName: 'Doe',
+        firstName: 'Jena',
+        lastName: 'Test',
         profilePicture: 'https://randomuser.me/api/portraits/med/men/93.jpg',
         dob: '1973-10-16',
         country: 'New Zealand',

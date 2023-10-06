@@ -21,7 +21,7 @@ export const CelebritiesPage = () => {
 
     const onSubmit = (updatedData?: Celebrity) => {
         if (updatedData) {
-            setCelebrityData(CelebrityDataUtilities.getUpdatedCelebritiesData(celebrityData, updatedData) ?? []);
+            setCelebrityData(CelebrityDataUtilities.getUpdatedCelebritiesData(celebrityData, updatedData));
         }
     };
 

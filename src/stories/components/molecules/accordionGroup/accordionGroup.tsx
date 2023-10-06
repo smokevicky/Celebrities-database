@@ -9,7 +9,7 @@ export interface AccordionGroupProps {
     expandedPanel?: string;
 }
 
-export const AccordionGroup = ({ content, isEditModeOpen = false, expandedPanel }: AccordionGroupProps) => {
+export const AccordionGroup = ({ content = [], isEditModeOpen = false, expandedPanel }: AccordionGroupProps) => {
     const [expanded, setExpanded] = useState<string | false>(expandedPanel || false);
     const [isAtleastOneAccordionInEditMode, toggleEditMode] = useState<boolean>(isEditModeOpen);
 

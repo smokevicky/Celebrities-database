@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { GenderData } from '@apiData';
 import { DobPicker } from '@atoms';
 import {
@@ -55,6 +55,7 @@ export const AccordionAtom = ({
     onSubmit = () => {},
     onEditModeToggle = () => {},
 }: AccordionAtomProps) => {
+    debugger;
     const [isEditMode, setIsEditMode] = useState<boolean>(isInEditMode);
 
     const [firstNameValue, setFirstNameValue] = useState<string>(firstName);
@@ -63,6 +64,15 @@ export const AccordionAtom = ({
     const [countryValue, setCountryValue] = useState<string>(country);
     const [descriptionValue, setDescriptionValue] = useState<string>(description);
     const [genderValue, setGenderValue] = useState<Gender>(gender);
+
+    useEffect(() => {
+        setFirstNameValue(firstName);
+        setLastNameValue(lastName);
+        setDobValue(dob);
+        setCountryValue(country);
+        setDescriptionValue(description);
+        setGenderValue(gender);
+    }, [firstName, lastName, dob, country, description, gender]);
 
     const styles = {
         profilePicture: {
@@ -291,12 +301,12 @@ export const AccordionAtom = ({
                                 <CancelOutlined
                                     sx={styles.userActionIcons}
                                     style={{ color: '#FF3D0A' }}
-                                    onClick={() => handleEditEnd()}
+                                    onClick={handleEditEnd}
                                 />
                                 <CheckCircleOutlineOutlined
                                     sx={styles.userActionIcons}
                                     style={{ color: '#38B000' }}
-                                    onClick={() => handleSubmit()}
+                                    onClick={handleSubmit}
                                 />
                             </>
                         )}

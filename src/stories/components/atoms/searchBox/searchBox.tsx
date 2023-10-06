@@ -34,6 +34,7 @@ export const SearchBox = (props: SearchBoxProps) => {
                             <SearchIcon />
                         </InputAdornment>
                     ),
+                    type: 'search',
                 }}
             />
         </Box>
