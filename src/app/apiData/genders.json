@@ -1,7 +1,0 @@
-{
-    "Male": { "label": "Male", "value": "male" },
-    "Female": { "label": "Female", "value": "female" },
-    "Transgender": { "label": "Transgender", "value": "transgender" },
-    "Other": { "label": "Other", "value": "other" },
-    "NOT_TO_SAY": { "label": "Rather not say", "value": "NOT_TO_SAY" }
-}
