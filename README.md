@@ -26,7 +26,7 @@ This project is using Material UI with Emotion(styling)
 
 The docs can be found here - https://mui.com/material-ui/getting-started/overview/
 
-## Available Scripts
+## Atomic Design Pattern
 
 This app follow ATOMIC design pattern.
 Inside storybook, we can see and play around with different Atoms, Molecules & Templates.
