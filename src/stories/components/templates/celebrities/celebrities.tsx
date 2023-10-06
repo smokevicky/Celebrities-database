@@ -1,7 +1,7 @@
 import React from 'react';
 import { SearchBox, SearchBoxProps } from '@atoms';
 import { AccordionGroup, AccordionGroupProps } from '@molecules';
-import { Box, Typography } from '@mui/material';
+import { Box, Container, Typography } from '@mui/material';
 
 export interface CelebritiesProps {
     searchBoxData: SearchBoxProps;
@@ -16,13 +16,13 @@ export const Celebrities = ({ searchBoxData, accordionGroupData }: CelebritiesPr
     };
 
     return (
-        <Box>
+        <Container maxWidth='md'>
             <Typography variant={'h5'}>Celebrities DB</Typography>
             <Box sx={styles.searchBoxContainer}>
                 <SearchBox {...searchBoxData}></SearchBox>
             </Box>
             <AccordionGroup {...accordionGroupData}></AccordionGroup>
-        </Box>
+        </Container>
     );
 };
 

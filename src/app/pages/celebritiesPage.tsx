@@ -11,7 +11,6 @@ import { CelebrityDataUtilities } from '../dataUtilities/celebrityDataUtilities'
 export const CelebritiesPage = () => {
     const styles = {
         celebritiesContainer: {
-            padding: '4rem 10rem 4rem 10rem',
             backgroundColor: '#0f19241c',
         },
     };
