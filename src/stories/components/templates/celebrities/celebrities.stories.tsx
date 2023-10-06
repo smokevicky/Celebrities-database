@@ -1,6 +1,6 @@
+import { GenderData } from '@apiData';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Celebrities } from '@templates';
-import { GenderData } from 'app/apiData';
 
 const meta: Meta<typeof Celebrities> = {
     title: 'Templates/Celebrities',

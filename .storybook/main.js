@@ -44,12 +44,6 @@ module.exports = {
         };
     },
 
-    managerHead: (head, { configType }) => {
-        if (configType === 'PRODUCTION') {
-            return `${head}<base href="/sf/storybook/">`;
-        }
-    },
-
     framework: {
         name: '@storybook/react-webpack5',
         options: {}

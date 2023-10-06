@@ -1,6 +1,6 @@
+import { GenderData } from '@apiData';
 import { AccordionGroup } from '@molecules';
 import type { Meta, StoryObj } from '@storybook/react';
-import { GenderData } from 'app/apiData';
 
 const meta: Meta<typeof AccordionGroup> = {
     title: 'Molecules/Accordion Group',

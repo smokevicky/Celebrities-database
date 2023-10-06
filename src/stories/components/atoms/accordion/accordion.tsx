@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { GenderData } from '@apiData';
 import { DobPicker } from '@atoms';
 import {
     CancelOutlined,
@@ -20,7 +21,6 @@ import {
     TextField,
     Typography,
 } from '@mui/material';
-import { GenderData } from 'app/apiData';
 import { Gender } from 'app/types/gender';
 
 export interface AccordionAtomProps {

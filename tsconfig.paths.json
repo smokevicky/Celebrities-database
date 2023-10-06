@@ -7,7 +7,7 @@
             "@molecules": ["stories/components/molecules/index.ts"],
             "@templates": ["stories/components/templates/index.ts"],
 
-            "@data": ["app/data/index.ts"],
+            "@apiData": ["app/apiData/index.ts"],
             "@types": ["app/types/index.ts"],
         }
     }
