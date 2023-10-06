@@ -1,19 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { CelebritiesData } from '@apiData';
 import { SearchBoxProps } from '@atoms';
 import { AccordionGroupProps } from '@molecules';
+import { Box } from '@mui/material';
 import { Celebrities } from '@templates';
+import { Celebrity } from '@types';
+
+import { CelebrityDataUtilities } from '../dataUtilities/celebrityDataUtilities';
 
 export const CelebritiesPage = () => {
+    const styles = {
+        celebritiesContainer: {
+            padding: '4rem 10rem 4rem 10rem',
+            backgroundColor: '#0f19241c',
+        },
+    };
+
+    const originalCelebrityData: Celebrity[] = Array.from(CelebritiesData);
+
+    const [celebrityData, setCelebrityData] = useState<Celebrity[]>(originalCelebrityData);
+
     const searchBoxData: SearchBoxProps = {
-        value: '',
-        onChange: (value) => {
-            alert(value);
+        onChange: (searchText) => {
+            setCelebrityData(
+                CelebrityDataUtilities.getFilteredCelebritiesData(originalCelebrityData, searchText.toLowerCase())
+            );
         },
     };
 
     const accordionGroupData: AccordionGroupProps = {
-        content: [],
+        ...CelebrityDataUtilities.getFormattedCelebrityData(celebrityData),
     };
 
-    return <Celebrities searchBoxData={searchBoxData} accordionGroupData={accordionGroupData}></Celebrities>;
+    return (
+        <Box sx={styles.celebritiesContainer}>
+            <Celebrities searchBoxData={searchBoxData} accordionGroupData={accordionGroupData}></Celebrities>
+        </Box>
+    );
 };

@@ -27,7 +27,7 @@ export const AccordionGroup = ({ content, isEditModeOpen = false, expandedPanel 
         <Box>
             {content.length > 0 &&
                 (content.map((celebrity, index) => (
-                    <Box sx={styles.accordionContainer}>
+                    <Box sx={styles.accordionContainer} key={index}>
                         <AccordionAtom
                             {...celebrity}
                             isExpanded={expanded === `celebrity${index}`}

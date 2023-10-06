@@ -11,7 +11,7 @@ export interface CelebritiesProps {
 export const Celebrities = ({ searchBoxData, accordionGroupData }: CelebritiesProps) => {
     const styles = {
         searchBoxContainer: {
-            marginY: '3rem',
+            marginY: '2.5rem',
         },
     };
 

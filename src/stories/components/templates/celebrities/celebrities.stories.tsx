@@ -55,7 +55,6 @@ const accordionContent = [
 export const Default: Story = {
     args: {
         searchBoxData: {
-            value: '',
             onChange: () => {},
         },
         accordionGroupData: {

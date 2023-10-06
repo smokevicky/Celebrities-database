@@ -5,7 +5,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import TextField from '@mui/material/TextField';
 
 export interface SearchBoxProps {
-    value: string;
+    defaultValue?: string;
     onChange: (value: string) => void;
 }
 
@@ -23,7 +23,7 @@ export const SearchBox = (props: SearchBoxProps) => {
             <TextField
                 label='Search celebrities'
                 variant='outlined'
-                defaultValue={props.value}
+                defaultValue={props.defaultValue}
                 onChange={(event: React.ChangeEvent<HTMLInputElement>) => props.onChange(event?.target?.value)}
                 fullWidth={true}
                 sx={styles.searchBox}

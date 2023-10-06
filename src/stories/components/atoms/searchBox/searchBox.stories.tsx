@@ -11,6 +11,6 @@ type Story = StoryObj<typeof SearchBox>;
 
 export const Default: Story = {
     args: {
-        value: 'test',
+        defaultValue: 'test',
     },
 };
